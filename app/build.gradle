@@ -39,6 +39,11 @@ dependencies {
   implementation "androidx.room:room-runtime:$room_version"
   androidTestImplementation "androidx.room:room-testing:$room_version"
 
+  //Architecture Components
+  implementation "androidx.arch.core:core-common:$androidx_common"
+  implementation "androidx.lifecycle:lifecycle-common:$lifecycle_components"
+  implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_components"
+
   //Espresso
   androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 

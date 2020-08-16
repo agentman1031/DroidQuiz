@@ -1,5 +1,6 @@
 package com.raywenderlich.droidquiz.view.data.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.raywenderlich.droidquiz.view.data.model.Answer
 import com.raywenderlich.droidquiz.view.data.model.Question
@@ -17,12 +18,12 @@ interface QuizDao {
     fun clearQuestions()
 
     @Query("SELECT * FROM questions ORDER BY question_id") // 1
-    fun getAllQuestions(): List<Question>
+    fun getAllQuestions(): LiveData<List<Question>>
 
     @Delete
     fun deleteQuestion(question: Question)
 
     @Transaction // 2
     @Query("SELECT * FROM questions") // 3
-    fun getQuestionAndAllAnswers(): List<QuestionsAndAllAnswers>
+    fun getQuestionAndAllAnswers(): LiveData<List<QuestionsAndAllAnswers>>
 }
